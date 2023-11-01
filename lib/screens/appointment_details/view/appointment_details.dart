@@ -9,15 +9,14 @@ import '../../../constants/screen_size/app_screen_size.dart';
 import '../../../widgets/app_button/back_button.dart';
 import '../../../widgets/app_button/submit_button.dart';
 import '../../../widgets/app_text/app_text.dart';
+import '../../welcome_screen/view/welcome_screen.dart';
 
 class AppointDetailsScreen extends StatelessWidget {
   const AppointDetailsScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return
-    
-    Scaffold(
+    return Scaffold(
       // resizeToAvoidBottomInset: false,
       backgroundColor: AppColor.screenBgColor,
       bottomNavigationBar: Padding(
@@ -29,11 +28,12 @@ class AppointDetailsScreen extends StatelessWidget {
                 horizontal: AppDimension().subMitBtnPadding),
             child: SubmitButton(
                 onTap: () {
-                  //   Get.to(const WelcomeScreen(),
-                  //   transition: Transition.fadeIn,
-                  //       curve: Curves.easeOut,
-                  //       duration: const Duration(milliseconds: 400),
-                  // );
+                  Get.offAll(
+                    const WelcomeScreen(),
+                    transition: Transition.fadeIn,
+                    curve: Curves.easeOut,
+                    duration: const Duration(milliseconds: 400),
+                  );
                 },
                 text: "Home",
                 textColor: AppColor.submitBtnTextWhite,
@@ -44,8 +44,7 @@ class AppointDetailsScreen extends StatelessWidget {
 
       body: SafeArea(
         child: SingleChildScrollView(
-          child:
-           Padding(
+          child: Padding(
             padding: EdgeInsets.symmetric(
                 horizontal: AppDimension().screenContaintPadding),
             child: Column(
@@ -93,18 +92,12 @@ class AppointDetailsScreen extends StatelessWidget {
                   height: 40,
                 ),
                 detailsFieldWidget(heading: "Confirmation Code:", dec: "VX56Y"),
-
-                
               ],
             ),
           ),
-      
-      
-      
         ),
       ),
     );
-  
   }
 
   Row detailsFieldWidget({required String heading, required String dec}) {
@@ -130,6 +123,4 @@ class AppointDetailsScreen extends StatelessWidget {
       ],
     );
   }
-
-
 }

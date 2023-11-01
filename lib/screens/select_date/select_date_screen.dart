@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:paitentapp/screens/select_time_slot/view/select_time_slot_screen.dart';
 import 'package:table_calendar/table_calendar.dart';
 
 import '../../constants/color/app_colors.dart';
@@ -28,11 +29,12 @@ class SelectDateScreen extends StatelessWidget {
                 horizontal: AppDimension().subMitBtnPadding),
             child: SubmitButton(
                 onTap: () {
-                  //   Get.to(const WelcomeScreen(),
-                  //   transition: Transition.fadeIn,
-                  //       curve: Curves.easeOut,
-                  //       duration: const Duration(milliseconds: 400),
-                  // );
+                  Get.to(
+                    SelectTimeSlotScreen(),
+                    transition: Transition.fadeIn,
+                    curve: Curves.easeOut,
+                    duration: const Duration(milliseconds: 400),
+                  );
                 },
                 text: "Next",
                 textColor: AppColor.submitBtnTextWhite,
@@ -79,10 +81,9 @@ class SelectDateScreen extends StatelessWidget {
                 Padding(
                   padding: const EdgeInsets.all(10),
                   child: Card(
-                    shadowColor: const Color.fromRGBO(0, 0, 0, 1)
-                                .withOpacity(0.4),
-                                elevation: 05,
-                                
+                    shadowColor:
+                        const Color.fromRGBO(0, 0, 0, 1).withOpacity(0.4),
+                    elevation: 05,
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(8),
                     ),
@@ -165,6 +166,5 @@ class SelectDateScreen extends StatelessWidget {
         ),
       ),
     );
-    
   }
 }

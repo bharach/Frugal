@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:paitentapp/screens/appointment_details/view/appointment_details.dart';
 
 import '../../../constants/color/app_colors.dart';
 import '../../../constants/dimensions/app_dimensions.dart';
@@ -14,8 +15,7 @@ class AppointmentConfirmationScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return 
-    Scaffold(
+    return Scaffold(
       // resizeToAvoidBottomInset: false,
       backgroundColor: AppColor.screenBgColor,
       bottomNavigationBar: Padding(
@@ -27,11 +27,12 @@ class AppointmentConfirmationScreen extends StatelessWidget {
                 horizontal: AppDimension().subMitBtnPadding),
             child: SubmitButton(
                 onTap: () {
-                  //   Get.to(const WelcomeScreen(),
-                  //   transition: Transition.fadeIn,
-                  //       curve: Curves.easeOut,
-                  //       duration: const Duration(milliseconds: 400),
-                  // );
+                  Get.to(
+                    const AppointDetailsScreen(),
+                    transition: Transition.fadeIn,
+                    curve: Curves.easeOut,
+                    duration: const Duration(milliseconds: 400),
+                  );
                 },
                 text: "Appointment Details",
                 textColor: AppColor.submitBtnTextWhite,
@@ -42,12 +43,10 @@ class AppointmentConfirmationScreen extends StatelessWidget {
 
       body: SafeArea(
         child: SingleChildScrollView(
-          child:
-           Padding(
+          child: Padding(
             padding: EdgeInsets.symmetric(
                 horizontal: AppDimension().screenContaintPadding),
-            child: 
-            Column(
+            child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 SizedBox(
@@ -100,12 +99,8 @@ class AppointmentConfirmationScreen extends StatelessWidget {
               ],
             ),
           ),
-        
-        
         ),
       ),
     );
-  
-  
   }
 }

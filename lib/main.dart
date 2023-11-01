@@ -62,20 +62,17 @@ class MyApp extends StatelessWidget {
             theme: ThemeData.light(),
             // getPages: getPages,
             // initialRoute: '/selectTimeSlotScreen',
-          
+
             // home: const PatientDetailsScreeen()
-            // home: const BookedAppointsScreen()
+            // home: BookAnAppointmentScreen()
             // home: const AppointmentConfirmationScreen()
             // home: const AppointDetailsScreen()
-            home: const UpcomingAppointmentScreen()
+            // home: const UpcomingAppointmentScreen()
             // home: const CancelAppointmentScreen()
             // home: const AppointmentCancelledScreen()
 
-            // home:const  LoginOrRegisterScreen()
-            );
+            home: const LoginOrRegisterScreen());
       },
     );
   }
-
- 
 }

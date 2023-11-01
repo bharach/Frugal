@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:paitentapp/screens/appointment_confirmation/view/appointment_confirmed.dart';
+import 'package:paitentapp/screens/confrmApnBking/view/confrmApntmntBking_screen.dart';
 
 import '../../../constants/color/app_colors.dart';
 import '../../../constants/dimensions/app_dimensions.dart';
@@ -16,8 +18,7 @@ class SelectTimeSlotScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return 
-    Scaffold(
+    return Scaffold(
       // resizeToAvoidBottomInset: false,
       backgroundColor: AppColor.screenBgColor,
       bottomNavigationBar: Padding(
@@ -29,11 +30,12 @@ class SelectTimeSlotScreen extends StatelessWidget {
                 horizontal: AppDimension().subMitBtnPadding),
             child: SubmitButton(
                 onTap: () {
-                  //   Get.to(const WelcomeScreen(),
-                  //   transition: Transition.fadeIn,
-                  //       curve: Curves.easeOut,
-                  //       duration: const Duration(milliseconds: 400),
-                  // );
+                  Get.to(
+                    const ConfrmApntmntBooking(),
+                    transition: Transition.fadeIn,
+                    curve: Curves.easeOut,
+                    duration: const Duration(milliseconds: 400),
+                  );
                 },
                 text: "Next",
                 textColor: AppColor.submitBtnTextWhite,
@@ -94,7 +96,7 @@ class SelectTimeSlotScreen extends StatelessWidget {
                         controller.selectedGridItem(index);
                       },
                       child: Obx(
-                        ()=> Container(
+                        () => Container(
                           width: ScreenSize.width(context) / 3,
                           alignment: Alignment.center,
                           // padding: const EdgeInsets.symmetric(
@@ -122,7 +124,5 @@ class SelectTimeSlotScreen extends StatelessWidget {
         ),
       ),
     );
-  
-  
   }
 }

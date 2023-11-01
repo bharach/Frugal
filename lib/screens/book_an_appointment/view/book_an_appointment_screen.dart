@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:paitentapp/screens/select_date/select_date_screen.dart';
 import '../../../constants/color/app_colors.dart';
 import '../../../constants/dimensions/app_dimensions.dart';
 import '../../../constants/screen_size/app_screen_size.dart';
@@ -17,9 +18,7 @@ class BookAnAppointmentScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return 
-    
-    Scaffold(
+    return Scaffold(
       // resizeToAvoidBottomInset: false,
       backgroundColor: AppColor.screenBgColor,
       bottomNavigationBar: Padding(
@@ -31,11 +30,12 @@ class BookAnAppointmentScreen extends StatelessWidget {
                 horizontal: AppDimension().subMitBtnPadding),
             child: SubmitButton(
                 onTap: () {
-                  //   Get.to(const WelcomeScreen(),
-                  //   transition: Transition.fadeIn,
-                  //       curve: Curves.easeOut,
-                  //       duration: const Duration(milliseconds: 400),
-                  // );
+                  Get.to(
+                    const SelectDateScreen(),
+                    transition: Transition.fadeIn,
+                    curve: Curves.easeOut,
+                    duration: const Duration(milliseconds: 400),
+                  );
                 },
                 text: "Next",
                 textColor: AppColor.submitBtnTextWhite,
@@ -87,7 +87,6 @@ class BookAnAppointmentScreen extends StatelessWidget {
                 ),
                 Container(
                   width: double.infinity,
-                 
                   padding:
                       const EdgeInsets.symmetric(horizontal: 15, vertical: 05),
                   decoration: BoxDecoration(
@@ -270,6 +269,5 @@ class BookAnAppointmentScreen extends StatelessWidget {
         ),
       ),
     );
-    
   }
 }

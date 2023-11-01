@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:paitentapp/screens/appointment_confirmation/view/appointment_confirmed.dart';
 
 import '../../../constants/color/app_colors.dart';
 import '../../../constants/dimensions/app_dimensions.dart';
@@ -15,9 +16,7 @@ class PatientDetailsScreeen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return 
-    
-    Scaffold(
+    return Scaffold(
       // resizeToAvoidBottomInset: false,
       backgroundColor: AppColor.screenBgColor,
       bottomNavigationBar: Padding(
@@ -29,11 +28,12 @@ class PatientDetailsScreeen extends StatelessWidget {
                 horizontal: AppDimension().subMitBtnPadding),
             child: SubmitButton(
                 onTap: () {
-                  //   Get.to(const WelcomeScreen(),
-                  //   transition: Transition.fadeIn,
-                  //       curve: Curves.easeOut,
-                  //       duration: const Duration(milliseconds: 400),
-                  // );
+                  Get.to(
+                    const AppointmentConfirmationScreen(),
+                    transition: Transition.fadeIn,
+                    curve: Curves.easeOut,
+                    duration: const Duration(milliseconds: 400),
+                  );
                 },
                 text: "Confirm",
                 textColor: AppColor.submitBtnTextWhite,
@@ -88,7 +88,7 @@ class PatientDetailsScreeen extends StatelessWidget {
                 const SizedBox(
                   height: 20,
                 ),
-                 DetailsTextField(
+                DetailsTextField(
                   hint: "Date of Birth (DD-MM-YYYY)",
                   onTextChanged: (_) {},
                   onValidator: (_) {
@@ -97,10 +97,10 @@ class PatientDetailsScreeen extends StatelessWidget {
                   inputType: TextInputType.name,
                   secureText: false,
                 ),
-                 const SizedBox(
+                const SizedBox(
                   height: 20,
                 ),
-                 DetailsTextField(
+                DetailsTextField(
                   hint: "Phone number for the Appointment",
                   onTextChanged: (_) {},
                   onValidator: (_) {
@@ -115,10 +115,5 @@ class PatientDetailsScreeen extends StatelessWidget {
         ),
       ),
     );
-  
-  
-  
   }
 }
-
-

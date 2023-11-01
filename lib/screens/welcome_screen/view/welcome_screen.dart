@@ -1,6 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:paitentapp/constants/dimensions/app_dimensions.dart';
 import 'package:paitentapp/constants/screen_size/app_screen_size.dart';
+import 'package:paitentapp/screens/appointment_confirmation/view/appointment_confirmed.dart';
+import 'package:paitentapp/screens/book_an_appointment/view/book_an_appointment_screen.dart';
+import 'package:paitentapp/screens/booked_appoints/view/booked_appoints_screen.dart';
+import 'package:paitentapp/screens/upcoming_appointment/view/upcoming_appointment.dart';
 
 import '../../../constants/color/app_colors.dart';
 import '../../../widgets/app_button/submit_button.dart';
@@ -47,25 +52,24 @@ class WelcomeScreen extends StatelessWidget {
               ),
               //!  welcome Greet
 
-                const BodyTittleText(
+              const BodyTittleText(
                 tittle: "Welcome, John",
-
               ),
 
-               SizedBox(
+              SizedBox(
                 height: ScreenSize.height(context) < 700 ? 110 : 120,
               ),
-             Column(
+              Column(
                 children: [
                   SubmitButton(
                       onTap: () {
-                        // Get.to(
-                        //   // '/LoginScreen',
-                        //   const LoginScreen(),
-                        //   transition: Transition.rightToLeft,
-                        //   curve: Curves.easeOut,
-                        //   duration: const Duration(milliseconds: 300),
-                        // );
+                        Get.to(
+                          // '/LoginScreen',
+                          BookAnAppointmentScreen(),
+                          transition: Transition.rightToLeft,
+                          curve: Curves.easeOut,
+                          duration: const Duration(milliseconds: 300),
+                        );
                       },
                       text: "Book an Appointment",
                       textColor: AppColor.submitBtnTextWhite,
@@ -75,13 +79,13 @@ class WelcomeScreen extends StatelessWidget {
                   ),
                   SubmitButton(
                     onTap: () {
-                      // Get.to(
-                      //     // '/RegisterScreen',
-                      //     const RegisterScreen(),
-                      //     transition: Transition.rightToLeft,
-                      //     curve: Curves.easeOut,
-                      //     duration: const Duration(milliseconds: 300),
-                      //   );
+                      Get.to(
+                        // '/RegisterScreen',
+                        const BookedAppointsScreen(),
+                        transition: Transition.rightToLeft,
+                        curve: Curves.easeOut,
+                        duration: const Duration(milliseconds: 100),
+                      );
                     },
                     text: "Booked Appointments",
                     textColor: AppColor.submitBtnTextBlack,
@@ -90,8 +94,6 @@ class WelcomeScreen extends StatelessWidget {
                   ),
                 ],
               ),
-         
-
             ],
           ),
         ),

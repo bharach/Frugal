@@ -4,6 +4,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:paitentapp/constants/color/app_colors.dart';
+import 'package:paitentapp/screens/patient_details/view/patient_details_screen.dart';
 
 import '../../../constants/dimensions/app_dimensions.dart';
 import '../../../constants/screen_size/app_screen_size.dart';
@@ -16,9 +17,7 @@ class ConfrmApntmntBooking extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return 
-    
-    Scaffold(
+    return Scaffold(
       // resizeToAvoidBottomInset: false,
       backgroundColor: AppColor.screenBgColor,
       bottomNavigationBar: Padding(
@@ -30,11 +29,12 @@ class ConfrmApntmntBooking extends StatelessWidget {
                 horizontal: AppDimension().subMitBtnPadding),
             child: SubmitButton(
                 onTap: () {
-                  //   Get.to(const WelcomeScreen(),
-                  //   transition: Transition.fadeIn,
-                  //       curve: Curves.easeOut,
-                  //       duration: const Duration(milliseconds: 400),
-                  // );
+                  Get.to(
+                    const PatientDetailsScreeen(),
+                    transition: Transition.fadeIn,
+                    curve: Curves.easeOut,
+                    duration: const Duration(milliseconds: 400),
+                  );
                 },
                 text: "Confirm and Add Details",
                 textColor: AppColor.submitBtnTextWhite,
@@ -95,18 +95,21 @@ class ConfrmApntmntBooking extends StatelessWidget {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        detailsField(headind: "Date",details: "4 October 2023, 11 h 00"),
+                        detailsField(
+                            headind: "Date",
+                            details: "4 October 2023, 11 h 00"),
                         const SizedBox(
                           height: 25,
                         ),
-                        detailsField(headind: "Location",details: "Dakar Regoinal Hospital"),
-
-
-                         const SizedBox(
+                        detailsField(
+                            headind: "Location",
+                            details: "Dakar Regoinal Hospital"),
+                        const SizedBox(
                           height: 25,
                         ),
-                        detailsField(headind: "Address",details: "163-157 Rue Mousse Diop, Dakar, Senegal"),
-
+                        detailsField(
+                            headind: "Address",
+                            details: "163-157 Rue Mousse Diop, Dakar, Senegal"),
                       ],
                     ),
                   )
@@ -117,8 +120,6 @@ class ConfrmApntmntBooking extends StatelessWidget {
         ),
       ),
     );
- 
- 
   }
 
   Column detailsField({required String headind, required details}) {
