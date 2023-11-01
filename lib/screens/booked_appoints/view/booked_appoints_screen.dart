@@ -17,7 +17,9 @@ class BookedAppointsScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return
+    
+     Scaffold(
       // resizeToAvoidBottomInset: false,
       backgroundColor: AppColor.screenBgColor,
       bottomNavigationBar: Padding(
@@ -75,7 +77,7 @@ class BookedAppointsScreen extends StatelessWidget {
                   itemCount: upcomingAppointList.length,
                   itemBuilder: (context, index) {
                     var data = upcomingAppointList[index];
-                    return InkWell(
+                    return GestureDetector(
                       onTap: () {
                         Get.to(
                           const UpcomingAppointmentScreen(),
@@ -142,6 +144,8 @@ class BookedAppointsScreen extends StatelessWidget {
         ),
       ),
     );
+  
+  
   }
 
   bookedAppintFiledWidget({required tittle, required String desc}) {

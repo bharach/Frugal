@@ -8,6 +8,7 @@ import '../../../constants/screen_size/app_screen_size.dart';
 import '../../../widgets/app_button/back_button.dart';
 import '../../../widgets/app_button/submit_button.dart';
 import '../../../widgets/app_text/app_text.dart';
+import '../../welcome_screen/view/welcome_screen.dart';
 
 class AppointmentCancelledScreen extends StatelessWidget {
   const AppointmentCancelledScreen({super.key});
@@ -26,11 +27,11 @@ class AppointmentCancelledScreen extends StatelessWidget {
                 horizontal: AppDimension().subMitBtnPadding),
             child: SubmitButton(
                 onTap: () {
-                  //   Get.to(const WelcomeScreen(),
-                  //   transition: Transition.fadeIn,
-                  //       curve: Curves.easeOut,
-                  //       duration: const Duration(milliseconds: 400),
-                  // );
+                    Get.offAll(const WelcomeScreen(),
+                    transition: Transition.fadeIn,
+                        curve: Curves.easeOut,
+                        duration: const Duration(milliseconds: 400),
+                  );
                 },
                 text: "Home",
                 textColor: AppColor.submitBtnTextWhite,
