@@ -3,15 +3,21 @@ import 'package:get/get.dart';
 import 'package:paitentapp/constants/color/app_colors.dart';
 import 'package:paitentapp/constants/dimensions/app_dimensions.dart';
 import 'package:paitentapp/constants/screen_size/app_screen_size.dart';
+import 'package:paitentapp/generated/locale_keys.g.dart';
 import 'package:paitentapp/screens/login/view/login_screen.dart';
 import 'package:paitentapp/screens/register/view/register_screen.dart';
-
+import 'package:easy_localization/easy_localization.dart';
 import '../../../widgets/app_button/submit_button.dart';
 import '../../../widgets/app_text/app_text.dart';
 
-class LoginOrRegisterScreen extends StatelessWidget {
+class LoginOrRegisterScreen extends StatefulWidget {
   const LoginOrRegisterScreen({super.key});
 
+  @override
+  State<LoginOrRegisterScreen> createState() => _LoginOrRegisterScreenState();
+}
+
+class _LoginOrRegisterScreenState extends State<LoginOrRegisterScreen> {
   @override
   Widget build(BuildContext context) {
     return
@@ -35,9 +41,11 @@ class LoginOrRegisterScreen extends StatelessWidget {
                     height: ScreenSize.height(context) * 0.25,
                     width: ScreenSize.height(context) * 0.25,
                   ),
-                  const AppTiitleText(
-                    tittle: "GUISS DOCTOR",
-                  ),
+                  //  AppTiitleText(
+                  //   tittle: "GUISS DOCTOR".tr(),
+                  // ),
+
+                  Text("app_title").tr()
                 ],
               ),
             ),
@@ -52,22 +60,34 @@ class LoginOrRegisterScreen extends StatelessWidget {
               child: 
               Column(
                 children: [
-                  SubmitButton(
-                      onTap: () {
-                        Get.to(
-                          // '/LoginScreen',
-                          const LoginScreen(),
-                          transition: Transition.rightToLeft,
-                          curve: Curves.easeOut,
-                          duration: const Duration(milliseconds: 300),
-                        );
-                      },
-                      text: "login",
-                      textColor: AppColor.submitBtnTextWhite,
-                      borderColor: AppColor.primaryBtnBorderColor),
-                  const SizedBox(
-                    height: 15,
-                  ),
+
+                  Text(LocaleKeys.app_title).tr(),
+                  Text("register",).tr(),
+                //  ElevatedButton(onPressed: ()
+                //  {
+                //    context.s
+                //   setState(() {
+                  
+                //   });
+                  
+                //  }, child: Text("Change")),
+
+                  // SubmitButton(
+                  //     onTap: () {
+                  //       Get.to(
+                  //         // '/LoginScreen',
+                  //         const LoginScreen(),
+                  //         transition: Transition.rightToLeft,
+                  //         curve: Curves.easeOut,
+                  //         duration: const Duration(milliseconds: 300),
+                  //       );
+                  //     },
+                  //     text: "login",
+                  //     textColor: AppColor.submitBtnTextWhite,
+                  //     borderColor: AppColor.primaryBtnBorderColor),
+                  // const SizedBox(
+                  //   height: 15,
+                  // ),
                   SubmitButton(
                     onTap: () {
                       Get.to(
@@ -78,7 +98,7 @@ class LoginOrRegisterScreen extends StatelessWidget {
                           duration: const Duration(milliseconds: 300),
                         );
                     },
-                    text: "Register",
+                    text: "Register ",
                     textColor: AppColor.submitBtnTextBlack,
                     backgroundColor: AppColor.backgroundColor,
                     borderColor: AppColor.blackBtnBorderColor,

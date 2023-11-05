@@ -3,6 +3,9 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:easy_localization/easy_localization.dart';
+
 import 'package:google_fonts/google_fonts.dart';
 import 'package:paitentapp/routes/app_routes.dart';
 import 'package:paitentapp/screens/book_an_appointment/view/book_an_appointment_screen.dart';
@@ -15,12 +18,15 @@ import 'screens/appointment_confirmation/view/appointment_confirmed.dart';
 import 'screens/appointment_details/view/appointment_details.dart';
 import 'screens/booked_appoints/view/booked_appoints_screen.dart';
 import 'screens/cancel_appointment.dart/view/cancel_appointment.dart';
+import 'screens/demoLanguage.dart';
 import 'screens/login_or_reg_screen/view/login_or_reg_screen.dart';
 import 'screens/patient_details/view/patient_details_screen.dart';
 import 'screens/upcoming_appointment/view/upcoming_appointment.dart';
 import 'widgets/app_text/app_text.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await EasyLocalization.ensureInitialized();
   // runApp(const MyApp());
 
 //! with Device preview
@@ -28,7 +34,14 @@ void main() {
   runApp(
     DevicePreview(
       enabled: !kReleaseMode,
-      builder: (context) => const MyApp(), // Wrap your app
+      builder: (context) {
+        return EasyLocalization(
+          supportedLocales: const [Locale('en'), Locale('fr')],
+          path: "assets/languages",
+          fallbackLocale: const Locale('en'),
+          child: const MyApp(),
+        );
+      }, // Wrap your app
     ),
   );
 }
@@ -57,9 +70,19 @@ class MyApp extends StatelessWidget {
         return GetMaterialApp(
             debugShowCheckedModeBanner: false,
             useInheritedMediaQuery: true,
-            locale: DevicePreview.locale(context),
+
+            // locale: DevicePreview.locale(context),
+            // locale: Locale('en', 'US'),
+             //Set French as the default locale
+            
+            // translations: Languages(),
             builder: DevicePreview.appBuilder,
             theme: ThemeData.light(),
+            // locale: context.locale,
+            locale:context.locale,
+            localizationsDelegates:  context.localizationDelegates,
+            supportedLocales: context.supportedLocales,
+
             // getPages: getPages,
             // initialRoute: '/selectTimeSlotScreen',
 
@@ -70,8 +93,10 @@ class MyApp extends StatelessWidget {
             // home: const UpcomingAppointmentScreen()
             // home: const CancelAppointmentScreen()
             // home: const AppointmentCancelledScreen()
+            home: const LoginOrRegisterScreen()
 
-            home: const LoginOrRegisterScreen());
+            // home: const DemoLanguageScreen(),
+            );
       },
     );
   }
