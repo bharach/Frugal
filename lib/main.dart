@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:device_preview/device_preview.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
@@ -27,30 +29,41 @@ import 'widgets/app_text/app_text.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await EasyLocalization.ensureInitialized();
-  // runApp(const MyApp());
+  runApp(
+    EasyLocalization(
+      supportedLocales: const [Locale('en', 'US'), Locale('fr', '')],
+      path: "assets/languages",
+      fallbackLocale: const Locale('en'),
+      child: MyApp(),
+    ),
+  );
 
 //! with Device preview
 
-  runApp(
-    DevicePreview(
-      enabled: !kReleaseMode,
-      builder: (context) {
-        return EasyLocalization(
-          supportedLocales: const [Locale('en'), Locale('fr')],
-          path: "assets/languages",
-          fallbackLocale: const Locale('en'),
-          child: const MyApp(),
-        );
-      }, // Wrap your app
-    ),
-  );
+  // runApp(
+  //   DevicePreview(
+  //     enabled: !kReleaseMode,
+  //     builder: (context) {
+  //       return EasyLocalization(
+  //         supportedLocales: const [Locale('en', 'US'), Locale('fr', '')],
+  //         path: "assets/languages",
+  //         fallbackLocale: const Locale('en'),
+  //         child: MyApp(),
+  //       );
+  //     }, // Wrap your app
+  //   ),
+  // );
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+  MyApp({super.key});
+
+  final String defaultLocale = Platform.localeName;
 
   @override
   Widget build(BuildContext context) {
+    print(defaultLocale.toString());
+
     // return GetMaterialApp(
     //   title: 'Flutter Demo',
     //   theme: ThemeData(
@@ -71,16 +84,16 @@ class MyApp extends StatelessWidget {
             debugShowCheckedModeBanner: false,
             useInheritedMediaQuery: true,
 
-            // locale: DevicePreview.locale(context),
+          //  locale: DevicePreview.locale(context),
             // locale: Locale('en', 'US'),
-             //Set French as the default locale
-            
+            //Set French as the default locale
+
             // translations: Languages(),
             builder: DevicePreview.appBuilder,
             theme: ThemeData.light(),
             // locale: context.locale,
-            locale:context.locale,
-            localizationsDelegates:  context.localizationDelegates,
+            locale: EasyLocalization.of(context)!.currentLocale,  
+            localizationsDelegates: context.localizationDelegates,
             supportedLocales: context.supportedLocales,
 
             // getPages: getPages,

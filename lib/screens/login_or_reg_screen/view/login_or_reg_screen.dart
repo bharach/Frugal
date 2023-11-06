@@ -41,11 +41,11 @@ class _LoginOrRegisterScreenState extends State<LoginOrRegisterScreen> {
                     height: ScreenSize.height(context) * 0.25,
                     width: ScreenSize.height(context) * 0.25,
                   ),
-                  //  AppTiitleText(
-                  //   tittle: "GUISS DOCTOR".tr(),
-                  // ),
+                   AppTiitleText(
+                    tittle: "app_title",
+                  ),
 
-                  Text("app_title").tr()
+                
                 ],
               ),
             ),
@@ -61,33 +61,28 @@ class _LoginOrRegisterScreenState extends State<LoginOrRegisterScreen> {
               Column(
                 children: [
 
-                  Text(LocaleKeys.app_title).tr(),
-                  Text("register",).tr(),
-                //  ElevatedButton(onPressed: ()
-                //  {
-                //    context.s
-                //   setState(() {
-                  
-                //   });
-                  
-                //  }, child: Text("Change")),
+                  // Text(LocaleKeys.app_title).tr(),
+                  // Text("register",).tr(),
 
-                  // SubmitButton(
-                  //     onTap: () {
-                  //       Get.to(
-                  //         // '/LoginScreen',
-                  //         const LoginScreen(),
-                  //         transition: Transition.rightToLeft,
-                  //         curve: Curves.easeOut,
-                  //         duration: const Duration(milliseconds: 300),
-                  //       );
-                  //     },
-                  //     text: "login",
-                  //     textColor: AppColor.submitBtnTextWhite,
-                  //     borderColor: AppColor.primaryBtnBorderColor),
-                  // const SizedBox(
-                  //   height: 15,
-                  // ),
+
+                  // Text("hello_world").tr(),
+           
+                  SubmitButton(
+                      onTap: () {
+                        Get.to(
+                          // '/LoginScreen',
+                          const LoginScreen(),
+                          transition: Transition.rightToLeft,
+                          curve: Curves.easeOut,
+                          duration: const Duration(milliseconds: 300),
+                        );
+                      },
+                      text: "login",
+                      textColor: AppColor.submitBtnTextWhite,
+                      borderColor: AppColor.primaryBtnBorderColor),
+                  const SizedBox(
+                    height: 15,
+                  ),
                   SubmitButton(
                     onTap: () {
                       Get.to(
@@ -98,7 +93,7 @@ class _LoginOrRegisterScreenState extends State<LoginOrRegisterScreen> {
                           duration: const Duration(milliseconds: 300),
                         );
                     },
-                    text: "Register ",
+                    text: "register",
                     textColor: AppColor.submitBtnTextBlack,
                     backgroundColor: AppColor.backgroundColor,
                     borderColor: AppColor.blackBtnBorderColor,

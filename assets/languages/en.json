@@ -3,5 +3,6 @@
 {
     "app_title" : "GUISS DOCTOR",
     "login" : "Login",
-    "register": "Register"
+    "register": "Register",
+    "hello_world": "Hello World"
 }

@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:paitentapp/constants/color/app_colors.dart';
 
@@ -55,7 +56,7 @@ class SubmitButton extends StatelessWidget {
           padding: const EdgeInsets.symmetric(vertical: 17),
           child: Center(
             child: SubmitButtonText(
-              tittle: text,
+              tittle: text.tr(),
               tittleColor: textColor,
             ),
           ),
