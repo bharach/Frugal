@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "482945734465",
+    "project_id": "patientapp-c1863",
+    "storage_bucket": "patientapp-c1863.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:482945734465:android:394eaf62b20f6f478233c0",
+        "android_client_info": {
+          "package_name": "com.example.coffeeapp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBMYVQw2e9ieqYN2uoBILooKZFF9rfjErA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:482945734465:android:3061fb8d4692d7598233c0",
+        "android_client_info": {
+          "package_name": "com.example.patientapp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBMYVQw2e9ieqYN2uoBILooKZFF9rfjErA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

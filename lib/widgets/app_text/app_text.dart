@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:paitentapp/constants/color/app_colors.dart';
+import 'package:patientapp/constants/color/app_colors.dart';
 
 class AppTiitleText extends StatelessWidget {
   //?  e.g :- GUISS DOCTOR
@@ -30,7 +30,7 @@ class AppTiitleText extends StatelessWidget {
       maxLines: maxTextlines,
       textAlign: alignnment ?? TextAlign.start,
       style: GoogleFonts.montserrat(
-          fontSize: textSize ?? 16.sp,
+          fontSize: textSize ?? 16 ,
           // fontSize: ScreenSize.width(context) < 360
           //     ? ScreenSize.width(context) * 0.03
           //     : ScreenSize.width(context) * 0.05,
@@ -66,11 +66,11 @@ class MainTittleText extends StatelessWidget {
       maxLines: maxTextlines,
       textAlign: alignnment ?? TextAlign.start,
       style: GoogleFonts.urbanist(
-          fontSize: textSize ?? 27.sp,
+          fontSize: textSize ?? 27,
           // fontSize: ScreenSize.width(context) < 360
           //     ? ScreenSize.width(context) * 0.03
           //     : ScreenSize.width(context) * 0.05,
-          fontWeight: textWeight ??FontWeight.bold,  // 700
+          fontWeight: textWeight ?? FontWeight.bold, // 700
           color: tittleColor ?? AppColor.mainTitleTextColor),
     );
   }
@@ -78,14 +78,14 @@ class MainTittleText extends StatelessWidget {
 
 class BodyTittleText extends StatelessWidget {
   //?  e.g :- Welcome, John
-   const BodyTittleText({
+  const BodyTittleText({
     super.key,
     required this.tittle,
     this.alignnment,
     this.maxTextlines,
     this.tittleColor,
     this.textSize,
-    this.fontweight, 
+    this.fontweight,
     this.lineHeightight,
   });
 
@@ -104,7 +104,7 @@ class BodyTittleText extends StatelessWidget {
       maxLines: maxTextlines,
       textAlign: alignnment ?? TextAlign.start,
       style: GoogleFonts.urbanist(
-          fontSize: textSize ?? 18.sp,
+          fontSize: textSize ?? 18,
           height: lineHeightight ?? 0.0,
           // fontSize: ScreenSize.width(context) < 360
           //     ? ScreenSize.width(context) * 0.03
@@ -147,7 +147,7 @@ class BodySubTittleText extends StatelessWidget {
       maxLines: maxTextlines ?? 1,
       textAlign: alignnment ?? TextAlign.start,
       style: GoogleFonts.urbanist(
-          fontSize: textSize ?? 14.sp, //16
+          fontSize: textSize ?? 14, //16
           height: lineheight ?? 0.0,
           decoration: textdecoration ?? TextDecoration.none,
           // fontSize: ScreenSize.width(context) < 360
@@ -181,7 +181,7 @@ class BodyText extends StatelessWidget {
       textAlign: alignnment ?? TextAlign.start,
       maxLines: maxTextlines,
       style: GoogleFonts.mulish(
-          fontSize: textsize ?? 16.sp,
+          fontSize: textsize ?? 16 ,
           fontWeight: FontWeight.w400,
           color: tittleColor ?? Colors.white60),
     );
@@ -210,7 +210,7 @@ class DescriptionText extends StatelessWidget {
       textAlign: alignnment ?? TextAlign.start,
       maxLines: maxTextlines,
       style: GoogleFonts.mulish(
-          fontSize: textsize ?? 14.sp,
+          fontSize: textsize ?? 14 ,
           fontWeight: FontWeight.w400,
           color: tittleColor ?? Colors.white60),
     );
@@ -241,7 +241,7 @@ class TImeSlotText extends StatelessWidget {
       textAlign: alignnment ?? TextAlign.start,
       maxLines: maxTextlines,
       style: GoogleFonts.roboto(
-          fontSize: textsize ?? 18.sp, // 20
+          fontSize: textsize ?? 18 , // 20
           fontWeight: FontWeight.bold,
           color: tittleColor ?? AppColor.tiemeSlotTxtColor),
     );
@@ -274,7 +274,7 @@ class TxtFldTittleText extends StatelessWidget {
       maxLines: maxTextlines,
       textAlign: alignnment ?? TextAlign.start,
       style: GoogleFonts.urbanist(
-          fontSize: textSize ?? 20.sp,
+          fontSize: textSize ?? 20,
           // fontSize: ScreenSize.width(context) < 360
           //     ? ScreenSize.width(context) * 0.03
           //     : ScreenSize.width(context) * 0.05,
@@ -308,7 +308,7 @@ class HintTittleText extends StatelessWidget {
       maxLines: maxTextlines,
       textAlign: alignnment ?? TextAlign.start,
       style: GoogleFonts.urbanist(
-          fontSize: textSize ?? 15.sp,
+          fontSize: textSize ?? 15 ,
           // fontSize: ScreenSize.width(context) < 360
           //     ? ScreenSize.width(context) * 0.03
           //     : ScreenSize.width(context) * 0.05,
@@ -380,7 +380,7 @@ class SubmitButtonText extends StatelessWidget {
       textAlign: alignnment ?? TextAlign.start,
       maxLines: maxTextlines,
       style: GoogleFonts.urbanist(
-          fontSize: textsize ?? 15.sp,
+          fontSize: textsize ?? 15,
           fontWeight: FontWeight.w600,
           color: tittleColor ?? AppColor.submitBtnTextBlack),
     );

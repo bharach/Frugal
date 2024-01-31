@@ -1,78 +1,70 @@
-import 'package:device_preview/device_preview.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:get/get.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:paitentapp/routes/app_routes.dart';
-import 'package:paitentapp/screens/book_an_appointment/view/book_an_appointment_screen.dart';
-import 'package:paitentapp/screens/confrmApnBking/view/confrmApntmntBking_screen.dart';
-import 'package:paitentapp/screens/select_date/select_date_screen.dart';
-import 'package:paitentapp/screens/select_time_slot/view/select_time_slot_screen.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:patientapp/screens/languagetranslate/SelectLang.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 
-import 'screens/appointment_cancelled/view/appointment_cacelled.dart.dart';
-import 'screens/appointment_confirmation/view/appointment_confirmed.dart';
-import 'screens/appointment_details/view/appointment_details.dart';
-import 'screens/booked_appoints/view/booked_appoints_screen.dart';
-import 'screens/cancel_appointment.dart/view/cancel_appointment.dart';
-import 'screens/login_or_reg_screen/view/login_or_reg_screen.dart';
-import 'screens/patient_details/view/patient_details_screen.dart';
-import 'screens/upcoming_appointment/view/upcoming_appointment.dart';
-import 'widgets/app_text/app_text.dart';
+import 'Models/patientdetail.dart';
+import 'screens/dashboard/confrmApntmntBking_screen.dart';
 
-void main() {
-  // runApp(const MyApp());
-
-//! with Device preview
-
-  runApp(
-    DevicePreview(
-      enabled: !kReleaseMode,
-      builder: (context) => const MyApp(), // Wrap your app
-    ),
-  );
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
+  runApp(const MyApp());
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+class MyApp extends StatefulWidget {
+  const MyApp({Key? key}) : super(key: key);
+
+  static _MyAppState? of(BuildContext context) =>
+      context.findAncestorStateOfType<_MyAppState>();
 
   @override
+  _MyAppState createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
+  Locale _locale = const Locale('fr');
+
+  void setLocale(Locale locale) {
+    setState(() {
+      _locale = locale;
+    });
+  }
+ AppointmentData? data;
+  @override
   Widget build(BuildContext context) {
-    // return GetMaterialApp(
-    //   title: 'Flutter Demo',
-    //   theme: ThemeData(
-    //     colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-    //     useMaterial3: true,
-    //   ),
-    //   home: Container()
-    // );
-
-    //! with device preview
-    return ScreenUtilInit(
-      designSize: const Size(360, 640),
-      minTextAdapt: true,
-      splitScreenMode: true,
-      // Use builder only if you need to use library outside ScreenUtilInit context
-      builder: (_, child) {
-        return GetMaterialApp(
-            debugShowCheckedModeBanner: false,
-            useInheritedMediaQuery: true,
-            locale: DevicePreview.locale(context),
-            builder: DevicePreview.appBuilder,
-            theme: ThemeData.light(),
-            // getPages: getPages,
-            // initialRoute: '/selectTimeSlotScreen',
-
-            // home: const PatientDetailsScreeen()
-            // home: BookAnAppointmentScreen()
-            // home: const AppointmentConfirmationScreen()
-            // home: const AppointDetailsScreen()
-            // home: const UpcomingAppointmentScreen()
-            // home: const CancelAppointmentScreen()
-            // home: const AppointmentCancelledScreen()
-
-            home: const LoginOrRegisterScreen());
-      },
+    return MaterialApp(
+      title: 'Home Screen',
+      localizationsDelegates: const [
+        AppLocalizations.delegate,
+        GlobalMaterialLocalizations.delegate,
+        GlobalWidgetsLocalizations.delegate,
+      ],
+      supportedLocales: const [
+        Locale('en', 'USA'), // USA
+        Locale('fr', 'FR') // French
+      ],
+      locale: _locale,
+      debugShowCheckedModeBanner: false,
+      theme: ThemeData(
+        scaffoldBackgroundColor: Colors.white,
+        appBarTheme: const AppBarTheme(
+          backgroundColor: Colors.white,
+          elevation: 0,
+          iconTheme: IconThemeData(
+            color: Colors.black,
+          ),
+        ),
+        textTheme: const TextTheme(
+          headline6: TextStyle(
+            color: Colors.white, // Set app bar title color
+            fontSize: 20, // Adjust the title font size as needed
+          ),
+        ),
+      ),
+      home: const LanguageSelection(),
+      // home: const ConfrmApntmntBooking(data: data!,),
     );
   }
 }

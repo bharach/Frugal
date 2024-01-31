@@ -1,5 +1,0 @@
-class  TimeslotModel{
-   String? timeSlot;
-}
-
-

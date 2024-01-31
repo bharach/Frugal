@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:paitentapp/constants/color/app_colors.dart';
-
+import 'package:patientapp/constants/color/app_colors.dart';
 import '../../constants/screen_size/app_screen_size.dart';
 import '../app_text/app_text.dart';
 
@@ -51,8 +50,7 @@ class SubmitButton extends StatelessWidget {
           // gradient: btnGradient
         ),
         child: Padding(
-          // padding: EdgeInsets.symmetric(vertical: 12),
-          padding: const EdgeInsets.symmetric(vertical: 17),
+          padding: const EdgeInsets.symmetric(vertical: 12),
           child: Center(
             child: SubmitButtonText(
               tittle: text,

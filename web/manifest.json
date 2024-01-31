@@ -1,6 +1,6 @@
 {
-    "name": "paitentapp",
-    "short_name": "paitentapp",
+    "name": "patientapp",
+    "short_name": "patientapp",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",
